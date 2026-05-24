@@ -57,7 +57,7 @@ export function HeroDynamicWord() {
     }, current.duration);
 
     return () => window.clearTimeout(timeout);
-  }, [current.duration, reducedMotion, sequence.length]);
+  }, [current.duration, frameIndex, reducedMotion, sequence.length]);
 
   return (
     <span className="hero-dynamic-word">
