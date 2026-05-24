@@ -29,6 +29,7 @@ type Metric = {
 
 export const navItems = [
   { label: "Fluxo", href: "#fluxo" },
+  { label: "Planos", href: "#planos" },
   { label: "Segurança", href: "#seguranca" },
   { label: "Clínicas", href: "#clinicas" },
   { label: "FAQ", href: "#faq" }
@@ -96,8 +97,8 @@ export const securityPoints: IconCard[] = [
   },
   {
     icon: "lock",
-    title: "Privacidade desde a narrativa",
-    text: "A landing evita promessas vagas e comunica cuidado com LGPD e processos internos."
+    title: "Privacidade desde o início",
+    text: "O VozClin comunica cuidado com LGPD, consentimento e processos internos desde o primeiro contato."
   },
   {
     icon: "shield",
@@ -129,11 +130,54 @@ export const audiences: IconCard[] = [
   }
 ];
 
+export const pricingPlans = [
+  {
+    segment: "Profissional individual",
+    name: "Essencial 1",
+    price: "R$ 149,90",
+    cadence: "/mês",
+    quantity: "1 chave mensal",
+    benefits: [
+      "Nova sessão por voz",
+      "Ficha revisável",
+      "Documentos derivados",
+      "Exportação após revisão"
+    ]
+  },
+  {
+    segment: "Clínica pequena",
+    name: "Essencial 3",
+    price: "R$ 399,90",
+    cadence: "/mês",
+    quantity: "3 chaves mensais",
+    recommended: true,
+    benefits: [
+      "Uso por equipe enxuta",
+      "Mesmo fluxo seguro",
+      "Planos por chave",
+      "Portal de assinatura Stripe"
+    ]
+  },
+  {
+    segment: "Equipe em crescimento",
+    name: "Essencial 5",
+    price: "R$ 649,90",
+    cadence: "/mês",
+    quantity: "5 chaves mensais",
+    benefits: [
+      "Mais acessos",
+      "Padronização de documentação",
+      "Fluxo de revisão",
+      "Base para piloto ampliado"
+    ]
+  }
+];
+
 export const differentiators = [
-  "Produto apresentado como apoio operacional, não como substituto clínico.",
-  "Fluxo visual centrado em voz, estrutura e revisão.",
-  "Contato provisório preparado para evoluir para WhatsApp oficial.",
-  "Copy B2B em português, pensada para clínicas particulares."
+  "Apoio operacional para documentação, sem substituir decisão clínica.",
+  "Fluxo centrado em voz, estruturação e revisão profissional.",
+  "Demonstração guiada para entender a rotina da clínica antes da adoção.",
+  "Planos e limites explicados em português claro para equipes de saúde."
 ];
 
 export const faqs = [

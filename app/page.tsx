@@ -23,6 +23,7 @@ import {
   differentiators,
   faqs,
   navItems,
+  pricingPlans,
   problems,
   securityPoints,
   workflowSteps,
@@ -147,9 +148,9 @@ export default function Home() {
             Documentar bem não deveria consumir o melhor horário da clínica.
           </h2>
           <p>
-            A experiência posiciona a IA como uma camada de organização. Ela
+            O VozClin usa IA como camada de organização documental. A rotina
             reduz atrito, preserva a revisão humana e mantém os limites clínicos
-            claros.
+            claros para o profissional.
           </p>
         </div>
         <div className="three-grid">
@@ -168,9 +169,9 @@ export default function Home() {
           <p className="section-kicker">Fluxo VozClin</p>
           <h2>Voz, estrutura e revisão em um mesmo movimento.</h2>
           <p>
-            A landing apresenta o produto como uma rotina simples e auditável:
-            primeiro a fala, depois a ficha estruturada, por fim a conferência
-            profissional.
+            O profissional registra a fala, recebe uma ficha estruturada e
+            revisa o conteúdo antes de copiar, exportar ou usar no sistema da
+            clínica.
           </p>
         </div>
         <div className="workflow-list">
@@ -184,6 +185,57 @@ export default function Home() {
               </div>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section id="planos" className="section-wrap pricing-section">
+        <div className="section-heading pricing-heading">
+          <p className="section-kicker">Planos VozClin</p>
+          <h2>Escolha o plano ideal para sua rotina clínica.</h2>
+          <p>
+            Sem taxas ocultas. Cancele quando quiser. Todos os planos mantêm
+            revisão humana, sessões temporárias e cuidado LGPD desde a
+            demonstração.
+          </p>
+        </div>
+        <div className="pricing-grid">
+          {pricingPlans.map((plan) => (
+            <article
+              className={plan.recommended ? "pricing-card recommended" : "pricing-card"}
+              key={plan.name}
+            >
+              <div className="pricing-card-topline">
+                <span className="pricing-segment">{plan.segment}</span>
+                {plan.recommended ? <span className="recommended-badge">Recomendado</span> : null}
+              </div>
+              <h3>{plan.name}</h3>
+              <div className="plan-price">
+                <strong>{plan.price}</strong>
+                <span>{plan.cadence}</span>
+              </div>
+              <p className="plan-quantity">{plan.quantity}</p>
+              <ul className="plan-benefits">
+                {plan.benefits.map((benefit) => (
+                  <li key={benefit}>
+                    <CheckCircle2 size={16} />
+                    <span>{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+        <div className="pricing-cta-panel">
+          <div>
+            <p className="cta-eyebrow">Próximo passo</p>
+            <h3>
+              Pronto para <span>revolucionar</span> sua documentação clínica?
+            </h3>
+          </div>
+          <a className="button pricing-cta-button" href="https://voxialaw.com/login">
+            Abrir plataforma
+            <ArrowRight size={18} />
+          </a>
         </div>
       </section>
 
@@ -232,13 +284,12 @@ export default function Home() {
       <section className="section-wrap product-section" aria-labelledby="produto-title">
         <div className="product-story">
           <div>
-            <p className="section-kicker">Direção de produto</p>
-            <h2 id="produto-title">Um SaaS clínico que parece seguro antes de parecer esperto.</h2>
+            <p className="section-kicker">Produto clínico</p>
+            <h2 id="produto-title">Um SaaS que prioriza segurança antes de parecer inteligente.</h2>
             <p>
-              A linguagem visual evita exageros de IA e privilegia clareza,
-              precisão, hierarquia e cuidado. O produto deve transmitir que a
-              tecnologia existe para aliviar a documentação, não para tomar a
-              decisão do profissional.
+              O VozClin privilegia clareza, precisão e cuidado operacional. A
+              tecnologia existe para aliviar a documentação, sem tomar a decisão
+              do profissional.
             </p>
           </div>
           <ul className="differentiator-list">
@@ -255,7 +306,7 @@ export default function Home() {
       <section id="faq" className="section-wrap faq-section">
         <div className="section-heading compact">
           <p className="section-kicker">FAQ</p>
-          <h2>Perguntas que a landing responde sem forçar promessa.</h2>
+          <h2>Perguntas frequentes antes da demonstração.</h2>
         </div>
         <div className="faq-list">
           {faqs.map((faq) => (
@@ -290,8 +341,8 @@ export default function Home() {
             <ArrowRight size={18} />
           </a>
           <p className="contact-note">
-            O canal oficial será ativado para conversas comerciais, triagem de
-            interesse e agendamento das primeiras apresentações.
+            Use este canal para tirar dúvidas comerciais, entender os planos e
+            agendar uma apresentação do VozClin.
           </p>
         </div>
       </section>
