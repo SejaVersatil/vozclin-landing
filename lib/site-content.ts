@@ -106,20 +106,24 @@ export const securityPoints: IconCard[] = [
   }
 ];
 
-export const audiences = [
+export const audiences: IconCard[] = [
   {
+    icon: "activity",
     title: "Fisioterapia e reabilitação",
     text: "Avaliações, evoluções, planos terapêuticos e acompanhamento de progresso."
   },
   {
+    icon: "stethoscope",
     title: "Clínicas médicas particulares",
     text: "Registros de consulta, histórico, orientações e organização pós-atendimento."
   },
   {
+    icon: "users",
     title: "Clínicas multidisciplinares",
     text: "Padronização de fichas entre especialidades e equipes com rotinas distintas."
   },
   {
+    icon: "spark",
     title: "Dermatologia e estética",
     text: "Histórico, queixas, condutas revisáveis e acompanhamento com linguagem clara."
   }

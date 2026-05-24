@@ -16,18 +16,24 @@ import {
   UsersRound,
   Workflow
 } from "lucide-react";
-import Image from "next/image";
+import { HeroDynamicWord } from "./components/hero-dynamic-word";
+import { RecordingSignalFlow } from "./components/recording-signal-flow";
 import {
   audiences,
   differentiators,
   faqs,
   navItems,
   problems,
-  proofMetrics,
   securityPoints,
   workflowSteps,
   type IconKey
 } from "@/lib/site-content";
+
+const heroProofPoints = [
+  "Captação por voz para ditados e conversas",
+  "Ficha revisável antes de copiar ou exportar",
+  "Apoio à rotina clínica, não decisão autônoma"
+];
 
 const icons = {
   activity: Activity,
@@ -65,79 +71,6 @@ function BrandMark() {
   );
 }
 
-function ProductPreview() {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-
-  return (
-    <div className="product-preview" aria-label="Prévia conceitual da interface VozClin">
-      <div className="preview-toolbar">
-        <span />
-        <span />
-        <span />
-        <strong>Sessão clínica em revisão</strong>
-      </div>
-      <div className="preview-grid">
-        <aside className="preview-sidebar">
-          <div className="preview-brand">
-            <BrandMark />
-            <span>VozClin</span>
-          </div>
-          <div className="preview-tab active">Nova sessão</div>
-          <div className="preview-tab">Modelos clínicos</div>
-          <div className="preview-tab">Fichas em revisão</div>
-          <div className="preview-tab">Segurança</div>
-        </aside>
-        <div className="preview-main">
-          <div className="session-panel">
-            <div>
-              <p className="mini-label">Consulta ambulatorial</p>
-              <h3>Grave, estruture e revise sem quebrar o ritmo da clínica.</h3>
-              <p>
-                Áudio tratado como apoio à documentação. Uso final somente após
-                conferência profissional.
-              </p>
-            </div>
-            <Image
-              className="signal-map"
-              src={`${basePath}/voice-clinical-map.svg`}
-              alt=""
-              width="252"
-              height="164"
-              unoptimized
-            />
-          </div>
-          <div className="preview-steps">
-            <div>
-              <Mic2 size={18} />
-              <strong>Voz</strong>
-              <span>captura guiada</span>
-            </div>
-            <div className="selected">
-              <FileCheck2 size={18} />
-              <strong>Ficha</strong>
-              <span>campos estruturados</span>
-            </div>
-            <div>
-              <CheckCircle2 size={18} />
-              <strong>Revisão</strong>
-              <span>validação humana</span>
-            </div>
-          </div>
-          <div className="note-panel">
-            <div className="note-head">
-              <span>Ficha estruturada</span>
-              <em>rascunho</em>
-            </div>
-            <div className="note-line wide" />
-            <div className="note-line" />
-            <div className="note-line short" />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 export default function Home() {
   const whatsappUrl = process.env.NEXT_PUBLIC_WHATSAPP_URL?.trim();
   const demoHref = whatsappUrl || "#contato";
@@ -164,36 +97,42 @@ export default function Home() {
 
       <section id="inicio" className="hero section-wrap">
         <div className="hero-copy">
-          <p className="eyebrow">
-            <ShieldCheck size={16} />
-            Documentação clínica por voz com revisão humana
-          </p>
-          <h1>Documentação clínica por voz, revisada antes de virar ficha.</h1>
+          <p className="eyebrow hero-eyebrow">Voz + IA clínica</p>
+          <div className="hero-visual" aria-hidden="true">
+            <RecordingSignalFlow />
+          </div>
+          <h1 aria-label="Documentação clínica pelo poder da voz. Documentação clínica pelo comando da voz.">
+            <span aria-hidden="true">
+              <span className="hero-title-line">Documentação clínica</span>
+              <span className="voice-gradient hero-title-voice">
+                <span>pelo</span>
+                <HeroDynamicWord />
+                <span>da voz.</span>
+              </span>
+            </span>
+          </h1>
           <p className="hero-lead">
-            O VozClin apoia clínicas e profissionais de saúde na transformação
-            de ditados, áudios e conversas clínicas em fichas estruturadas,
-            revisáveis e prontas para uso responsável.
+            O VozClin transforma ditados e conversas clínicas em fichas estruturadas,
+            revisáveis e prontas para uso pelo profissional.
           </p>
           <div className="hero-actions">
-            <a className="button primary" href="#contato">
-              Agendar demonstração
+            <a className="button primary" href="https://voxialaw.com/login">
+              Testar VozClin
               <ArrowRight size={18} />
             </a>
             <a className="button secondary" href="#fluxo">
-              Ver fluxo do produto
+              Ver como funciona
             </a>
           </div>
-          <div className="proof-strip" aria-label="Pontos de confiança">
-            {proofMetrics.map((metric) => (
-              <div key={metric.label} className="proof-item">
-                <IconBadge icon={metric.icon} />
-                <strong>{metric.value}</strong>
-                <span>{metric.label}</span>
-              </div>
+          <div className="proof-strip hero-proof-strip" aria-label="Pontos de confiança">
+            {heroProofPoints.map((point) => (
+              <span key={point}>
+                <CheckCircle2 size={16} />
+                {point}
+              </span>
             ))}
           </div>
         </div>
-        <ProductPreview />
       </section>
 
       <section className="section-wrap problem-section" aria-labelledby="problema-title">
@@ -268,15 +207,16 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="clinicas" className="section-wrap audience-section">
-        <div className="section-heading">
+      <section id="clinicas" className="section-wrap audience-section audience-flow-section">
+        <div className="section-heading audience-flow-heading">
           <p className="section-kicker">Clínicas ideais</p>
           <h2>Para operações onde cada atendimento gera informação importante.</h2>
         </div>
-        <div className="audience-grid">
-          {audiences.map((audience) => (
-            <article className="audience-card" key={audience.title}>
-              <Stethoscope size={22} />
+        <div className="audience-grid audience-flow-grid">
+          {audiences.map((audience, index) => (
+            <article className="audience-card audience-flow-card" key={audience.title}>
+              <IconBadge icon={audience.icon} />
+              <span className="audience-step">0{index + 1}</span>
               <h3>{audience.title}</h3>
               <p>{audience.text}</p>
             </article>
