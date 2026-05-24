@@ -66,6 +66,8 @@ function BrandMark() {
 }
 
 function ProductPreview() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
   return (
     <div className="product-preview" aria-label="Prévia conceitual da interface VozClin">
       <div className="preview-toolbar">
@@ -97,7 +99,7 @@ function ProductPreview() {
             </div>
             <Image
               className="signal-map"
-              src="/voice-clinical-map.svg"
+              src={`${basePath}/voice-clinical-map.svg`}
               alt=""
               width="252"
               height="164"

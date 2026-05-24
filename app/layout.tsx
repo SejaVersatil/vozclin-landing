@@ -14,7 +14,11 @@ const sans = Manrope({
   display: "swap"
 });
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sejaversatil.github.io";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "VozClin | Documentação clínica por voz com IA",
   description:
     "Landing premium do VozClin, um SaaS de apoio à documentação clínica por voz com IA, fichas estruturadas e revisão humana obrigatória.",
@@ -34,7 +38,11 @@ export const metadata: Metadata = {
       "Transforme ditados e conversas clínicas em fichas estruturadas, revisáveis e prontas para conferência profissional.",
     type: "website",
     locale: "pt_BR",
-    siteName: "VozClin"
+    siteName: "VozClin",
+    images: [`${basePath}/og.svg`]
+  },
+  icons: {
+    icon: `${basePath}/favicon.svg`
   }
 };
 
