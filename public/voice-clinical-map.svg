@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 252 164" role="img" aria-label="Mapa visual de voz e ficha clínica">
+  <rect width="252" height="164" rx="8" fill="#0b5d56"/>
+  <path d="M18 124h216" stroke="#88dcd2" stroke-opacity=".28" stroke-width="1"/>
+  <path d="M18 92h216" stroke="#88dcd2" stroke-opacity=".22" stroke-width="1"/>
+  <path d="M18 60h216" stroke="#88dcd2" stroke-opacity=".18" stroke-width="1"/>
+  <path d="M30 84c7 0 7-38 14-38s7 72 14 72 7-51 14-51 7 25 14 25 7-16 14-16 7 8 14 8 7-43 14-43 7 76 14 76 7-54 14-54 7 17 14 17 7-10 14-10 7 27 14 27 7-42 14-42 7 24 14 24" fill="none" stroke="#dff8f2" stroke-width="4" stroke-linecap="round"/>
+  <rect x="30" y="22" width="76" height="8" rx="4" fill="#dff8f2" opacity=".9"/>
+  <rect x="30" y="134" width="116" height="8" rx="4" fill="#88dcd2" opacity=".7"/>
+  <rect x="158" y="134" width="58" height="8" rx="4" fill="#fff3d6" opacity=".9"/>
+  <circle cx="208" cy="30" r="14" fill="#fff3d6"/>
+  <path d="M202 30l4 4 8-9" fill="none" stroke="#063f3b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

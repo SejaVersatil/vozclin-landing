@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="VozClin landing">
+  <rect width="1200" height="630" fill="#fbfdfb"/>
+  <path d="M0 0h1200v630H0z" fill="#fbfdfb"/>
+  <path d="M0 470h1200v160H0z" fill="#063f3b"/>
+  <rect x="74" y="72" width="84" height="84" rx="18" fill="#063f3b"/>
+  <path d="M116 130c13 0 23-10 23-23V88a6 6 0 0 0-12 0v19a11 11 0 0 1-22 0V88a6 6 0 0 0-12 0v19c0 13 10 23 23 23Z" fill="#dff8f2"/>
+  <text x="182" y="128" fill="#082622" font-family="Arial, sans-serif" font-size="54" font-weight="800">VozClin</text>
+  <text x="74" y="270" fill="#082622" font-family="Georgia, serif" font-size="72" font-weight="700">Documentação clínica por voz</text>
+  <text x="74" y="348" fill="#294b47" font-family="Arial, sans-serif" font-size="34">Fichas estruturadas, revisão humana e IA com limites claros.</text>
+  <rect x="780" y="116" width="330" height="250" rx="12" fill="#063f3b"/>
+  <path d="M824 244c10 0 10-64 20-64s10 118 20 118 10-82 20-82 10 40 20 40 10-25 20-25 10 12 20 12 10-67 20-67 10 122 20 122 10-86 20-86 10 28 20 28 10-18 20-18 10 46 20 46" fill="none" stroke="#dff8f2" stroke-width="9" stroke-linecap="round"/>
+  <text x="74" y="548" fill="#dff8f2" font-family="Arial, sans-serif" font-size="30" font-weight="700">Apoio à documentação clínica com revisão profissional obrigatória</text>
+</svg>

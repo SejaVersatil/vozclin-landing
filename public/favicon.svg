@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="VozClin">
+  <rect width="64" height="64" rx="14" fill="#063f3b"/>
+  <path d="M32 42c6.1 0 11-4.9 11-11V20a3 3 0 0 0-6 0v11a5 5 0 0 1-10 0V20a3 3 0 0 0-6 0v11c0 6.1 4.9 11 11 11Z" fill="#dff8f2"/>
+  <path d="M18 30c0 7.7 6.3 14 14 14s14-6.3 14-14" fill="none" stroke="#12a99c" stroke-width="4" stroke-linecap="round"/>
+  <path d="M32 44v7" stroke="#dff8f2" stroke-width="4" stroke-linecap="round"/>
+</svg>
