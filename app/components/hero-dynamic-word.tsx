@@ -61,7 +61,6 @@ export function HeroDynamicWord() {
 
   return (
     <span className="hero-dynamic-word">
-      <span className="hero-dynamic-word__measure">comando</span>
       <span className="hero-dynamic-word__visible" key={displayText || "blank"}>
         {displayText || "\u00A0"}
       </span>

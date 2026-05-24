@@ -103,10 +103,15 @@ export default function Home() {
           </div>
           <h1 aria-label="Documentação clínica pelo poder da voz. Documentação clínica pelo comando da voz.">
             <span aria-hidden="true">
-              <span className="hero-title-line">Documentação clínica</span>
+              <span className="hero-title-line">
+                <span className="hero-title-word">Documentação</span>
+                <span className="hero-title-word">clínica</span>
+              </span>
               <span className="voice-gradient hero-title-voice">
                 <span>pelo</span>
+                {" "}
                 <HeroDynamicWord />
+                {" "}
                 <span>da voz.</span>
               </span>
             </span>

@@ -346,13 +346,8 @@ h3 {
 }
 
 h1 .voice-gradient {
-  display: flex;
+  display: block;
   width: 100%;
-  flex-wrap: nowrap;
-  align-items: baseline;
-  justify-content: center;
-  column-gap: 0.16em;
-  row-gap: 0;
   color: transparent;
   background: var(--voice-gradient);
   background-clip: text;
@@ -364,28 +359,37 @@ h1 .voice-gradient {
   display: block;
 }
 
+.hero-title-word {
+  display: inline;
+}
+
+.hero-title-word + .hero-title-word {
+  margin-inline-start: 0.16em;
+}
+
 .hero-title-voice > span:not(.hero-dynamic-word) {
   white-space: nowrap;
 }
 
 .hero-dynamic-word {
   position: relative;
-  display: inline-grid;
-  grid-template-areas: "word";
-  min-width: 3.58em;
-  padding-inline-end: 0.12em;
-  margin-inline: 0.02em 0.01em;
+  display: inline-block;
+  min-width: 0.42em;
+  padding-inline-end: 0.05em;
+  margin-inline: 0;
   line-height: inherit;
+  text-align: left;
   vertical-align: baseline;
   isolation: isolate;
+  white-space: nowrap;
 }
 
 .hero-dynamic-word::before {
   content: "";
   position: absolute;
-  right: 0.2em;
+  right: 0.08em;
   bottom: 0.08em;
-  left: 0.02em;
+  left: 0;
   z-index: -1;
   height: 0.08em;
   border-radius: 999px;
@@ -393,15 +397,8 @@ h1 .voice-gradient {
   transform-origin: left center;
 }
 
-.hero-dynamic-word__measure,
 .hero-dynamic-word__visible {
-  grid-area: word;
   line-height: inherit;
-}
-
-.hero-dynamic-word__measure {
-  visibility: hidden;
-  pointer-events: none;
 }
 
 .hero-dynamic-word__visible {
@@ -1291,7 +1288,7 @@ h1 .voice-gradient {
 
   h1 {
     max-width: 100%;
-    font-size: clamp(2rem, 9.4vw, 2.45rem);
+    font-size: clamp(1.7rem, 7vw, 2rem);
     line-height: 0.98;
   }
 
@@ -1306,6 +1303,14 @@ h1 .voice-gradient {
 
   .hero-title-voice > span:last-child {
     display: block;
+  }
+
+  .hero-title-word {
+    display: block;
+  }
+
+  .hero-title-word + .hero-title-word {
+    margin-inline-start: 0;
   }
 
   .hero-actions {
