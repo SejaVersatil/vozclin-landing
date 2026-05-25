@@ -55,6 +55,8 @@ const errorMessages: Record<string, string> = {
   "no-speech": "Não detectamos fala. Tente novamente falando perto do microfone."
 };
 
+const botGreeting = "Bem vindo ao VozClin, teste o poder da sua voz!";
+
 function getSpeechRecognition() {
   const speechWindow = window as SpeechRecognitionWindow;
   return speechWindow.SpeechRecognition ?? speechWindow.webkitSpeechRecognition;
@@ -70,6 +72,7 @@ export function VoiceTranscriptionDemo() {
   const [finalTranscript, setFinalTranscript] = useState("");
   const [interimTranscript, setInterimTranscript] = useState("");
   const [notice, setNotice] = useState("Clique no microfone e fale.");
+  const [botMessage, setBotMessage] = useState("");
 
   const transcriptText = useMemo(
     () => [finalTranscript, interimTranscript].filter(Boolean).join(" ").trim(),
@@ -158,6 +161,37 @@ export function VoiceTranscriptionDemo() {
     };
   }, []);
 
+  useEffect(() => {
+    const shouldReduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (shouldReduceMotion) {
+      const reducedMotionTimer = window.setTimeout(() => setBotMessage(botGreeting), 0);
+
+      return () => window.clearTimeout(reducedMotionTimer);
+    }
+
+    let index = 0;
+    let typingTimer: number | undefined;
+    const initialDelay = window.setTimeout(() => {
+      typingTimer = window.setInterval(() => {
+        index += 1;
+        setBotMessage(botGreeting.slice(0, index));
+
+        if (index >= botGreeting.length && typingTimer) {
+          window.clearInterval(typingTimer);
+        }
+      }, 34);
+    }, 420);
+
+    return () => {
+      window.clearTimeout(initialDelay);
+
+      if (typingTimer) {
+        window.clearInterval(typingTimer);
+      }
+    };
+  }, []);
+
   function toggleListening() {
     if (support !== "supported" || !recognitionRef.current) {
       setNotice("Use Chrome ou Edge em uma página HTTPS para testar a voz.");
@@ -195,13 +229,14 @@ export function VoiceTranscriptionDemo() {
 
   return (
     <section className="voice-demo-section section-wrap" aria-labelledby="voice-demo-title">
-      <div className="voice-demo-heading">
-        <h2 id="voice-demo-title">Teste sua Voz</h2>
-      </div>
       <div className="voice-demo-shell">
         <div className={isListening ? "voice-chat-card listening" : "voice-chat-card"}>
+          <div className="voice-chat-header">
+            <h2 id="voice-demo-title">Teste sua Voz</h2>
+          </div>
+
           <div className={isListening ? "voice-live-line active" : "voice-live-line"} aria-hidden="true">
-            {Array.from({ length: 26 }).map((_, index) => (
+            {Array.from({ length: 18 }).map((_, index) => (
               <span key={index} style={{ animationDelay: `${index * 54}ms` }} />
             ))}
           </div>
@@ -218,7 +253,9 @@ export function VoiceTranscriptionDemo() {
               </span>
               <div className="voice-message-body">
                 <strong>Dr. VozClin</strong>
-                <p>Bem vindo ao VozClin, teste o poder da sua voz!</p>
+                <p className={botMessage.length < botGreeting.length ? "typing" : undefined}>
+                  {botMessage || "\u00A0"}
+                </p>
               </div>
             </div>
 
@@ -240,7 +277,7 @@ export function VoiceTranscriptionDemo() {
               aria-pressed={isListening}
             >
               <span className="voice-mic-icon" aria-hidden="true">
-                {isListening ? <Square size={22} /> : <Mic2 size={24} />}
+                {isListening ? <Square size={14} /> : <Mic2 size={17} />}
               </span>
               <span>{isListening ? "Parar" : "Falar"}</span>
             </button>

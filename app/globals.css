@@ -759,34 +759,21 @@ h1 .voice-gradient {
 
 .voice-demo-section {
   position: relative;
-  padding: clamp(20px, 3vw, 34px) 0 clamp(86px, 8vw, 116px);
-}
-
-.voice-demo-heading {
-  max-width: 960px;
-  margin: 0 auto 24px;
-  text-align: center;
-}
-
-.voice-demo-heading h2 {
-  margin: 0;
-  color: var(--ink);
-  font-size: clamp(3.25rem, 6vw, 5.85rem);
-  line-height: 0.92;
+  padding: clamp(16px, 3vw, 32px) 0 clamp(82px, 8vw, 112px);
 }
 
 .voice-demo-shell {
   position: relative;
   display: block;
-  max-width: 980px;
+  max-width: 900px;
   margin: 0 auto;
-  padding: clamp(10px, 1.6vw, 16px);
+  padding: 8px;
   border: 1px solid rgba(8, 118, 111, 0.12);
-  border-radius: 34px;
+  border-radius: 28px;
   background:
-    radial-gradient(circle at 50% 0%, rgba(18, 169, 156, 0.12), transparent 44%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(247, 255, 252, 0.72));
-  box-shadow: 0 32px 92px rgba(6, 63, 59, 0.12);
+    radial-gradient(circle at 6% 0%, rgba(18, 169, 156, 0.08), transparent 38%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(249, 253, 251, 0.7));
+  box-shadow: 0 24px 68px rgba(6, 63, 59, 0.09);
   overflow: hidden;
 }
 
@@ -811,21 +798,38 @@ h1 .voice-gradient {
 .voice-chat-card {
   position: relative;
   display: flex;
-  min-height: 486px;
+  min-height: 420px;
   flex-direction: column;
   justify-content: space-between;
-  padding: clamp(22px, 3vw, 38px);
+  padding: clamp(18px, 2.5vw, 26px);
   border: 1px solid rgba(220, 233, 229, 0.94);
-  border-radius: 28px;
+  border-radius: 22px;
   background:
-    radial-gradient(circle at 18% 8%, rgba(223, 248, 242, 0.88), transparent 28%),
-    radial-gradient(circle at 82% 18%, rgba(255, 243, 214, 0.54), transparent 34%),
+    radial-gradient(circle at 14% 10%, rgba(223, 248, 242, 0.55), transparent 30%),
+    radial-gradient(circle at 86% 14%, rgba(255, 243, 214, 0.34), transparent 34%),
     rgba(255, 255, 255, 0.94);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.88),
-    0 24px 70px rgba(6, 63, 59, 0.1);
+    0 18px 46px rgba(6, 63, 59, 0.07);
   backdrop-filter: blur(18px);
   overflow: hidden;
+}
+
+.voice-chat-header {
+  display: flex;
+  min-height: 34px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.voice-chat-header h2 {
+  margin: 0;
+  color: var(--clinical);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 0.01em;
 }
 
 .voice-reset-button {
@@ -848,17 +852,17 @@ h1 .voice-gradient {
 
 .voice-live-line {
   display: flex;
-  height: 60px;
+  height: 24px;
   align-items: center;
-  gap: 5px;
-  margin: 0 auto clamp(18px, 3vw, 28px);
-  padding: 0 22px;
-  width: min(100%, 720px);
-  border: 1px solid rgba(8, 118, 111, 0.1);
+  gap: 4px;
+  width: min(100%, 300px);
+  margin: 0 0 clamp(18px, 3vw, 28px);
+  padding: 0 12px;
+  border: 1px solid rgba(8, 118, 111, 0.08);
   border-radius: 999px;
   background:
-    radial-gradient(circle at 50% 50%, rgba(18, 169, 156, 0.14), transparent 62%),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.5), rgba(223, 248, 242, 0.9), rgba(255, 255, 255, 0.5));
+    radial-gradient(circle at 44% 50%, rgba(18, 169, 156, 0.1), transparent 66%),
+    rgba(247, 255, 252, 0.74);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.56);
 }
 
@@ -878,57 +882,51 @@ h1 .voice-gradient {
 .voice-chat-window {
   display: grid;
   flex: 1;
-  align-content: center;
-  gap: 18px;
-  width: min(100%, 780px);
-  min-height: 228px;
-  margin: 0 auto;
-  padding: clamp(10px, 2vw, 18px);
+  align-content: start;
+  gap: 14px;
+  width: 100%;
+  min-height: 236px;
+  margin: 0;
+  padding: 0;
 }
 
 .voice-chat-message {
   display: grid;
-  gap: 14px;
-  padding: clamp(16px, 2vw, 20px);
+  gap: 10px;
+  padding: 14px;
   border: 1px solid rgba(8, 118, 111, 0.12);
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.82);
-  box-shadow: 0 18px 48px rgba(6, 63, 59, 0.07);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 14px 32px rgba(6, 63, 59, 0.055);
   animation: voice-chat-rise 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .voice-chat-message.assistant {
   grid-template-columns: auto 1fr;
-  width: min(100%, 680px);
+  width: min(100%, 580px);
 }
 
 .medical-bot-avatar {
   position: relative;
   display: inline-flex;
-  width: 58px;
-  height: 58px;
+  width: 34px;
+  height: 34px;
   align-items: center;
   justify-content: center;
-  color: white;
-  border-radius: 20px;
-  background:
-    radial-gradient(circle at 70% 20%, rgba(18, 169, 156, 0.44), transparent 38%),
-    var(--clinical);
-  box-shadow: 0 18px 36px rgba(6, 63, 59, 0.22);
+  color: var(--clinical);
+  border: 1px solid rgba(8, 118, 111, 0.14);
+  border-radius: 11px;
+  background: rgba(240, 251, 248, 0.92);
+  box-shadow: none;
 }
 
 .medical-bot-avatar::after {
-  content: "";
-  position: absolute;
-  inset: -7px;
-  border: 1px solid rgba(18, 169, 156, 0.2);
-  border-radius: 24px;
-  animation: voice-bot-pulse 2200ms ease-in-out infinite;
+  display: none;
 }
 
 .medical-bot-avatar svg {
-  width: 35px;
-  height: 35px;
+  width: 22px;
+  height: 22px;
 }
 
 .medical-bot-avatar rect,
@@ -943,9 +941,9 @@ h1 .voice-gradient {
 
 .voice-message-body strong {
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   color: var(--clinical);
-  font-size: 0.76rem;
+  font-size: 0.68rem;
   font-weight: 900;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -954,13 +952,24 @@ h1 .voice-gradient {
 .voice-message-body p {
   margin: 0;
   color: var(--ink-soft);
-  font-size: clamp(1.12rem, 1.55vw, 1.4rem);
+  font-size: clamp(0.98rem, 1.22vw, 1.12rem);
   line-height: 1.5;
   overflow-wrap: anywhere;
 }
 
+.voice-message-body p.typing::after {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 1em;
+  margin-left: 2px;
+  background: rgba(8, 118, 111, 0.55);
+  transform: translateY(2px);
+  animation: voice-type-caret 760ms steps(1) infinite;
+}
+
 .voice-chat-message.user {
-  width: min(92%, 620px);
+  width: min(92%, 560px);
   justify-self: end;
   border-color: rgba(8, 118, 111, 0.22);
   background: rgba(223, 248, 242, 0.68);
@@ -984,31 +993,31 @@ h1 .voice-gradient {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 14px;
-  min-height: 92px;
-  margin-top: 10px;
+  justify-content: flex-start;
+  gap: 10px;
+  min-height: 50px;
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(220, 233, 229, 0.82);
 }
 
 .voice-mic-button {
   position: relative;
   display: inline-flex;
-  flex-direction: column;
-  min-width: 112px;
-  min-height: 112px;
+  min-width: auto;
+  min-height: 42px;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 0;
-  color: white;
-  border: 1px solid rgba(6, 63, 59, 0.92);
+  padding: 0 13px;
+  color: var(--clinical);
+  border: 1px solid rgba(8, 118, 111, 0.18);
   border-radius: 999px;
-  background:
-    radial-gradient(circle at 50% 22%, rgba(18, 169, 156, 0.2), transparent 38%),
-    var(--clinical);
-  box-shadow: 0 22px 46px rgba(6, 63, 59, 0.24);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 10px 24px rgba(6, 63, 59, 0.07);
   cursor: pointer;
-  font-weight: 900;
+  font-size: 0.88rem;
+  font-weight: 850;
   letter-spacing: 0.01em;
   transition:
     transform 180ms ease,
@@ -1020,7 +1029,7 @@ h1 .voice-gradient {
 .voice-mic-button::after {
   content: "";
   position: absolute;
-  inset: -10px;
+  inset: -5px;
   z-index: -1;
   border: 1px solid rgba(8, 118, 111, 0.16);
   border-radius: inherit;
@@ -1030,23 +1039,22 @@ h1 .voice-gradient {
 .voice-mic-button:hover,
 .voice-mic-button:focus-visible {
   transform: translateY(-2px);
-  box-shadow: 0 28px 58px rgba(6, 63, 59, 0.28);
+  box-shadow: 0 14px 30px rgba(6, 63, 59, 0.11);
 }
 
 .voice-mic-icon {
   display: inline-flex;
-  width: 36px;
-  height: 36px;
+  width: 19px;
+  height: 19px;
   align-items: center;
   justify-content: center;
 }
 
 .voice-mic-button.listening {
-  border-color: rgba(18, 169, 156, 0.48);
-  background:
-    radial-gradient(circle at 50% 22%, rgba(255, 255, 255, 0.16), transparent 36%),
-    #08766f;
-  box-shadow: 0 26px 64px rgba(8, 118, 111, 0.3);
+  color: #06433f;
+  border-color: rgba(18, 169, 156, 0.34);
+  background: rgba(223, 248, 242, 0.92);
+  box-shadow: 0 14px 32px rgba(8, 118, 111, 0.12);
 }
 
 .voice-mic-button.listening::before,
@@ -1065,15 +1073,10 @@ h1 .voice-gradient {
 }
 
 .voice-controls p {
-  position: absolute;
-  top: 50%;
-  left: calc(50% + 76px);
-  max-width: 250px;
-  transform: translateY(-50%);
   margin: 0;
   color: var(--muted);
-  font-size: 0.92rem;
-  font-weight: 800;
+  font-size: 0.86rem;
+  font-weight: 700;
   line-height: 1.45;
 }
 
@@ -1755,6 +1758,18 @@ h1 .voice-gradient {
   }
 }
 
+@keyframes voice-type-caret {
+  0%,
+  45% {
+    opacity: 1;
+  }
+
+  46%,
+  100% {
+    opacity: 0;
+  }
+}
+
 @keyframes voice-mic-ring {
   from {
     opacity: 0.52;
@@ -1973,7 +1988,7 @@ h1 .voice-gradient {
   }
 
   .voice-chat-card {
-    min-height: 500px;
+    min-height: 430px;
     padding: 18px;
   }
 
@@ -1991,7 +2006,7 @@ h1 .voice-gradient {
   }
 
   .voice-chat-window {
-    min-height: 238px;
+    min-height: 230px;
     padding: 12px;
   }
 
@@ -2001,12 +2016,12 @@ h1 .voice-gradient {
   }
 
   .voice-chat-message.assistant {
-    grid-template-columns: 1fr;
+    grid-template-columns: auto 1fr;
   }
 
   .medical-bot-avatar {
-    width: 54px;
-    height: 54px;
+    width: 32px;
+    height: 32px;
   }
 
   .voice-message-body p {
@@ -2014,22 +2029,24 @@ h1 .voice-gradient {
   }
 
   .voice-controls {
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
     gap: 10px;
     min-height: auto;
     padding-bottom: 4px;
   }
 
   .voice-mic-button {
-    min-width: 104px;
-    min-height: 104px;
+    min-width: auto;
+    min-height: 42px;
   }
 
   .voice-controls p {
     position: static;
     max-width: 100%;
     transform: none;
-    text-align: center;
+    text-align: left;
   }
 
   h2 {
@@ -2151,7 +2168,8 @@ h1 .voice-gradient {
   .medical-bot-avatar::after,
   .voice-mic-button.listening::before,
   .voice-mic-button.listening::after,
-  .voice-chat-message {
+  .voice-chat-message,
+  .voice-message-body p.typing::after {
     animation: none !important;
   }
 
