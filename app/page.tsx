@@ -116,7 +116,6 @@ export default function Home() {
 
       <section id="inicio" className="hero section-wrap">
         <div className="hero-copy">
-          <p className="eyebrow hero-eyebrow">Voz + IA clínica</p>
           <div className="hero-visual" aria-hidden="true">
             <RecordingSignalFlow />
           </div>
