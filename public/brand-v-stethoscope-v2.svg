@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="VozClin">
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none">
   <defs>
     <linearGradient id="brandV2Bg" x1="6" y1="4" x2="58" y2="62" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#0B4B48"/>

@@ -67,7 +67,44 @@ function IconBadge({ icon }: { icon: IconKey }) {
 function BrandMark() {
   return (
     <span className="brand-mark" aria-hidden="true">
-      <Mic2 size={19} strokeWidth={2.2} />
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" focusable="false">
+        <defs>
+          <linearGradient id="brandV2Bg" x1="6" y1="4" x2="58" y2="62" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stopColor="#0B4B48" />
+            <stop offset="0.55" stopColor="#0A625E" />
+            <stop offset="1" stopColor="#0A7774" />
+          </linearGradient>
+          <linearGradient id="brandV2Tube" x1="18" y1="12" x2="48" y2="55" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stopColor="#FFFFFF" />
+            <stop offset="1" stopColor="#DDF8F2" />
+          </linearGradient>
+        </defs>
+        <rect width="64" height="64" rx="14" fill="url(#brandV2Bg)" />
+        <path
+          d="M20 16.1v6.8c0 9.6 4.9 16.1 12 20.8 7.1-4.7 12-11.2 12-20.8v-6.8"
+          stroke="url(#brandV2Tube)"
+          strokeWidth="5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M32 43.6c-.2 4.9 3.8 8.7 9.2 8.7"
+          stroke="url(#brandV2Tube)"
+          strokeWidth="5"
+          strokeLinecap="round"
+        />
+        <circle cx="20" cy="14.1" r="3.25" fill="#F7FFFC" />
+        <circle cx="44" cy="14.1" r="3.25" fill="#F7FFFC" />
+        <circle cx="45.2" cy="52.1" r="4.35" stroke="#F7FFFC" strokeWidth="3.4" />
+        <circle cx="45.2" cy="52.1" r="1.35" fill="#AEECE3" />
+        <path
+          d="M25.1 31.4h3.1l1.6-4.4 3.5 9.4 1.8-5h3.1"
+          stroke="#AEECE3"
+          strokeWidth="2.15"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
     </span>
   );
 }

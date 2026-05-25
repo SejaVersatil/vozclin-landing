@@ -1,9 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="VozClin landing">
+  <defs>
+    <linearGradient id="ogBrandBg" x1="6" y1="4" x2="58" y2="62" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0B4B48"/>
+      <stop offset="0.55" stop-color="#0A625E"/>
+      <stop offset="1" stop-color="#0A7774"/>
+    </linearGradient>
+    <linearGradient id="ogBrandTube" x1="18" y1="12" x2="48" y2="55" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#DDF8F2"/>
+    </linearGradient>
+  </defs>
   <rect width="1200" height="630" fill="#fbfdfb"/>
   <path d="M0 0h1200v630H0z" fill="#fbfdfb"/>
   <path d="M0 470h1200v160H0z" fill="#063f3b"/>
-  <rect x="74" y="72" width="84" height="84" rx="18" fill="#063f3b"/>
-  <path d="M116 130c13 0 23-10 23-23V88a6 6 0 0 0-12 0v19a11 11 0 0 1-22 0V88a6 6 0 0 0-12 0v19c0 13 10 23 23 23Z" fill="#dff8f2"/>
+  <g transform="translate(74 72) scale(1.3125)">
+    <rect width="64" height="64" rx="14" fill="url(#ogBrandBg)"/>
+    <path d="M20 16.1v6.8c0 9.6 4.9 16.1 12 20.8 7.1-4.7 12-11.2 12-20.8v-6.8" stroke="url(#ogBrandTube)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M32 43.6c-.2 4.9 3.8 8.7 9.2 8.7" stroke="url(#ogBrandTube)" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="20" cy="14.1" r="3.25" fill="#F7FFFC"/>
+    <circle cx="44" cy="14.1" r="3.25" fill="#F7FFFC"/>
+    <circle cx="45.2" cy="52.1" r="4.35" stroke="#F7FFFC" stroke-width="3.4"/>
+    <circle cx="45.2" cy="52.1" r="1.35" fill="#AEECE3"/>
+    <path d="M25.1 31.4h3.1l1.6-4.4 3.5 9.4 1.8-5h3.1" stroke="#AEECE3" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
   <text x="182" y="128" fill="#082622" font-family="Arial, sans-serif" font-size="54" font-weight="800">VozClin</text>
   <text x="74" y="270" fill="#082622" font-family="Georgia, serif" font-size="72" font-weight="700">Documentação clínica por voz</text>
   <text x="74" y="348" fill="#294b47" font-family="Arial, sans-serif" font-size="34">Fichas estruturadas, revisão humana e IA com limites claros.</text>

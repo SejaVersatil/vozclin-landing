@@ -99,12 +99,19 @@ textarea {
 }
 
 .brand-mark {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   color: white;
-  border-radius: 8px;
-  background: linear-gradient(145deg, var(--clinical), var(--clinical-3));
+  border-radius: 10px;
+  background: transparent;
   box-shadow: 0 14px 34px rgba(8, 118, 111, 0.25);
+  overflow: hidden;
+}
+
+.brand-mark svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .icon-badge {
