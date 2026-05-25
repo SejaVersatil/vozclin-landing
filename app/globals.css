@@ -84,10 +84,11 @@ textarea {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   color: var(--ink);
   font-weight: 900;
   text-decoration: none;
+  line-height: 1;
 }
 
 .brand-mark,
@@ -101,12 +102,13 @@ textarea {
 .brand-mark {
   width: 40px;
   height: 40px;
-  color: white;
   border-radius: 10px;
   background: transparent;
   border: 1px solid rgba(10, 119, 116, 0.16);
   box-shadow: 0 8px 20px rgba(8, 118, 111, 0.08);
   overflow: hidden;
+  flex: 0 0 40px;
+  line-height: 0;
 }
 
 .brand-mark svg {

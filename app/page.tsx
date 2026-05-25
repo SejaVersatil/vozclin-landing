@@ -67,35 +67,24 @@ function IconBadge({ icon }: { icon: IconKey }) {
 function BrandMark() {
   return (
     <span className="brand-mark" aria-hidden="true">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" focusable="false">
-        <defs>
-          <linearGradient id="brandMonogramBg" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stopColor="#F7FFFC" />
-            <stop offset="0.58" stopColor="#E5F7F2" />
-            <stop offset="1" stopColor="#CFF0EA" />
-          </linearGradient>
-          <linearGradient id="brandMonogramStroke" x1="16" y1="13" x2="49" y2="51" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stopColor="#0B8F86" />
-            <stop offset="1" stopColor="#16B8AA" />
-          </linearGradient>
-        </defs>
-        <rect width="64" height="64" rx="15" fill="url(#brandMonogramBg)" stroke="#BFE7DF" strokeWidth="1.4" />
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" focusable="false">
+        <rect x="1" y="1" width="38" height="38" rx="10" fill="#F7FFFC" stroke="#BFE7DF" strokeWidth="1.2" />
         <path
-          d="M17.8 17.4l12.1 29.1c.82 1.98 3.39 2.04 4.28.09l13.34-29.19"
-          stroke="url(#brandMonogramStroke)"
-          strokeWidth="6.2"
+          d="M10.5 10.5l7.1 19.1c.72 1.95 3.54 1.97 4.3.04l7.6-19.14"
+          fill="none"
+          stroke="#08766F"
+          strokeWidth="3.2"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <path
-          d="M22.5 34.2h5.9l1.8-4.5 4.2 10.2 2.2-5.7h5.2"
-          stroke="#0AA39A"
-          strokeWidth="2.05"
+          d="M15.4 22h2.9l1.25-3.2 2.55 6.6 1.45-3.4h3"
+          fill="none"
+          stroke="#12A99C"
+          strokeWidth="1.35"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
-        <circle cx="50.6" cy="50.6" r="4.1" fill="#16B8AA" />
-        <circle cx="50.6" cy="50.6" r="1.35" fill="#F7FFFC" />
       </svg>
     </span>
   );

@@ -15,8 +15,8 @@
   <path d="M0 470h1200v160H0z" fill="#063f3b"/>
   <g transform="translate(74 72) scale(1.3125)">
     <rect width="64" height="64" rx="15" fill="url(#ogBrandBg)" stroke="#BFE7DF" stroke-width="1.4"/>
-    <path d="M17.8 17.4l12.1 29.1c.82 1.98 3.39 2.04 4.28.09l13.34-29.19" stroke="url(#ogBrandStroke)" stroke-width="6.2" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M22.5 34.2h5.9l1.8-4.5 4.2 10.2 2.2-5.7h5.2" stroke="#0AA39A" stroke-width="2.05" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M17.8 17.4l12.1 29.1c.82 1.98 3.39 2.04 4.28.09l13.34-29.19" fill="none" stroke="url(#ogBrandStroke)" stroke-width="6.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M22.5 34.2h5.9l1.8-4.5 4.2 10.2 2.2-5.7h5.2" fill="none" stroke="#0AA39A" stroke-width="2.05" stroke-linecap="round" stroke-linejoin="round"/>
     <circle cx="50.6" cy="50.6" r="4.1" fill="#16B8AA"/>
     <circle cx="50.6" cy="50.6" r="1.35" fill="#F7FFFC"/>
   </g>
