@@ -70,9 +70,9 @@ function BrandMark() {
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" focusable="false">
         <defs>
           <linearGradient id="brandV2Bg" x1="6" y1="4" x2="58" y2="62" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stopColor="#0B4B48" />
-            <stop offset="0.55" stopColor="#0A625E" />
-            <stop offset="1" stopColor="#0A7774" />
+            <stop offset="0" stopColor="#0D8C84" />
+            <stop offset="0.58" stopColor="#0AA39A" />
+            <stop offset="1" stopColor="#16B8AA" />
           </linearGradient>
           <linearGradient id="brandV2Tube" x1="18" y1="12" x2="48" y2="55" gradientUnits="userSpaceOnUse">
             <stop offset="0" stopColor="#FFFFFF" />

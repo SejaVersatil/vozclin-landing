@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="VozClin">
   <defs>
     <linearGradient id="brandV2Bg" x1="6" y1="4" x2="58" y2="62" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#0B4B48"/>
-      <stop offset="0.55" stop-color="#0A625E"/>
-      <stop offset="1" stop-color="#0A7774"/>
+      <stop offset="0" stop-color="#0D8C84"/>
+      <stop offset="0.58" stop-color="#0AA39A"/>
+      <stop offset="1" stop-color="#16B8AA"/>
     </linearGradient>
     <linearGradient id="brandV2Tube" x1="18" y1="12" x2="48" y2="55" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#FFFFFF"/>

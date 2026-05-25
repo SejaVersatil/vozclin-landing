@@ -104,7 +104,8 @@ textarea {
   color: white;
   border-radius: 10px;
   background: transparent;
-  box-shadow: 0 14px 34px rgba(8, 118, 111, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  box-shadow: 0 12px 28px rgba(8, 118, 111, 0.18);
   overflow: hidden;
 }
 
