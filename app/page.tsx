@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { HeroDynamicWord } from "./components/hero-dynamic-word";
 import { RecordingSignalFlow } from "./components/recording-signal-flow";
+import { VoiceTranscriptionDemo } from "./components/voice-transcription-demo";
 import {
   audiences,
   differentiators,
@@ -157,6 +158,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <VoiceTranscriptionDemo />
 
       <section className="section-wrap problem-section" aria-labelledby="problema-title">
         <div className="section-heading">
