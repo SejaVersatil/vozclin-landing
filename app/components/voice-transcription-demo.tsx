@@ -78,6 +78,7 @@ export function VoiceTranscriptionDemo() {
     () => [finalTranscript, interimTranscript].filter(Boolean).join(" ").trim(),
     [finalTranscript, interimTranscript]
   );
+  const statusLabel = support === "unsupported" ? "Indisponível" : isListening ? "Escutando" : "Pronto";
 
   useEffect(() => {
     const SpeechRecognition = getSpeechRecognition();
@@ -233,6 +234,9 @@ export function VoiceTranscriptionDemo() {
         <div className={isListening ? "voice-chat-card listening" : "voice-chat-card"}>
           <div className="voice-chat-header">
             <h2 id="voice-demo-title">Teste sua Voz</h2>
+            <span className={isListening ? "voice-chat-status active" : "voice-chat-status"}>
+              {statusLabel}
+            </span>
           </div>
 
           <div className={isListening ? "voice-live-line active" : "voice-live-line"} aria-hidden="true">

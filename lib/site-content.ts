@@ -170,6 +170,20 @@ export const pricingPlans = [
       "Fluxo de revisão",
       "Base para piloto ampliado"
     ]
+  },
+  {
+    segment: "Plano personalizado",
+    name: "Sob consulta",
+    price: "Sob consulta",
+    cadence: "comercial",
+    quantity: "acessos personalizados",
+    consult: true,
+    benefits: [
+      "Quantidade de chaves sob medida",
+      "Condições para clínicas maiores",
+      "Apoio para implantação",
+      "Contato direto com o VozClin"
+    ]
   }
 ];
 

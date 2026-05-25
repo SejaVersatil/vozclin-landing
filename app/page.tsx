@@ -220,31 +220,38 @@ export default function Home() {
           </p>
         </div>
         <div className="pricing-grid">
-          {pricingPlans.map((plan) => (
-            <article
-              className={plan.recommended ? "pricing-card recommended" : "pricing-card"}
-              key={plan.name}
-            >
-              <div className="pricing-card-topline">
-                <span className="pricing-segment">{plan.segment}</span>
-                {plan.recommended ? <span className="recommended-badge">Recomendado</span> : null}
-              </div>
-              <h3>{plan.name}</h3>
-              <div className="plan-price">
-                <strong>{plan.price}</strong>
-                <span>{plan.cadence}</span>
-              </div>
-              <p className="plan-quantity">{plan.quantity}</p>
-              <ul className="plan-benefits">
-                {plan.benefits.map((benefit) => (
-                  <li key={benefit}>
-                    <CheckCircle2 size={16} />
-                    <span>{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
+          {pricingPlans.map((plan) => {
+            const cardClassName = [
+              "pricing-card",
+              plan.recommended ? "recommended" : "",
+              plan.consult ? "consult" : ""
+            ]
+              .filter(Boolean)
+              .join(" ");
+
+            return (
+              <article className={cardClassName} key={plan.name}>
+                <div className="pricing-card-topline">
+                  <span className="pricing-segment">{plan.segment}</span>
+                  {plan.recommended ? <span className="recommended-badge">Recomendado</span> : null}
+                </div>
+                <h3>{plan.name}</h3>
+                <div className="plan-price">
+                  <strong>{plan.price}</strong>
+                  <span>{plan.cadence}</span>
+                </div>
+                <p className="plan-quantity">{plan.quantity}</p>
+                <ul className="plan-benefits">
+                  {plan.benefits.map((benefit) => (
+                    <li key={benefit}>
+                      <CheckCircle2 size={16} />
+                      <span>{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            );
+          })}
         </div>
         <div className="pricing-cta-panel">
           <div>
