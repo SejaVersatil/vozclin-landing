@@ -70,16 +70,16 @@ function BrandMark() {
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" focusable="false">
         <defs>
           <linearGradient id="brandV2Bg" x1="6" y1="4" x2="58" y2="62" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stopColor="#0D8C84" />
-            <stop offset="0.58" stopColor="#0AA39A" />
-            <stop offset="1" stopColor="#16B8AA" />
+            <stop offset="0" stopColor="#F7FFFC" />
+            <stop offset="0.58" stopColor="#E5F7F2" />
+            <stop offset="1" stopColor="#CFF0EA" />
           </linearGradient>
           <linearGradient id="brandV2Tube" x1="18" y1="12" x2="48" y2="55" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stopColor="#FFFFFF" />
-            <stop offset="1" stopColor="#DDF8F2" />
+            <stop offset="0" stopColor="#0B8F86" />
+            <stop offset="1" stopColor="#16B8AA" />
           </linearGradient>
         </defs>
-        <rect width="64" height="64" rx="14" fill="url(#brandV2Bg)" />
+        <rect width="64" height="64" rx="14" fill="url(#brandV2Bg)" stroke="#BFE7DF" strokeWidth="1.4" />
         <path
           d="M20 16.1v6.8c0 9.6 4.9 16.1 12 20.8 7.1-4.7 12-11.2 12-20.8v-6.8"
           stroke="url(#brandV2Tube)"
@@ -93,13 +93,13 @@ function BrandMark() {
           strokeWidth="5"
           strokeLinecap="round"
         />
-        <circle cx="20" cy="14.1" r="3.25" fill="#F7FFFC" />
-        <circle cx="44" cy="14.1" r="3.25" fill="#F7FFFC" />
-        <circle cx="45.2" cy="52.1" r="4.35" stroke="#F7FFFC" strokeWidth="3.4" />
-        <circle cx="45.2" cy="52.1" r="1.35" fill="#AEECE3" />
+        <circle cx="20" cy="14.1" r="3.25" fill="#0B8F86" />
+        <circle cx="44" cy="14.1" r="3.25" fill="#0B8F86" />
+        <circle cx="45.2" cy="52.1" r="4.35" stroke="#0B8F86" strokeWidth="3.4" />
+        <circle cx="45.2" cy="52.1" r="1.35" fill="#0AA39A" />
         <path
           d="M25.1 31.4h3.1l1.6-4.4 3.5 9.4 1.8-5h3.1"
-          stroke="#AEECE3"
+          stroke="#0AA39A"
           strokeWidth="2.15"
           strokeLinecap="round"
           strokeLinejoin="round"
