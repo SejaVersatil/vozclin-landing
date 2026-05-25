@@ -55,6 +55,9 @@ const icons = {
   workflow: Workflow
 } satisfies Record<IconKey, typeof Activity>;
 
+const DEMO_WHATSAPP_URL =
+  "https://wa.me/5571991801276?text=Ol%C3%A1%2C%20quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20VozClin.";
+
 function IconBadge({ icon }: { icon: IconKey }) {
   const Icon = icons[icon];
 
@@ -92,8 +95,7 @@ function BrandMark() {
 }
 
 export default function Home() {
-  const whatsappUrl = process.env.NEXT_PUBLIC_WHATSAPP_URL?.trim();
-  const demoHref = whatsappUrl || "#contato";
+  const demoHref = DEMO_WHATSAPP_URL;
 
   return (
     <main className="site-shell">
@@ -109,7 +111,7 @@ export default function Home() {
             </a>
           ))}
         </nav>
-        <a className="topbar-cta" href="#contato">
+        <a className="topbar-cta" href={demoHref} target="_blank" rel="noreferrer">
           <CalendarCheck2 size={17} />
           Agendar demonstração
         </a>
@@ -352,11 +354,11 @@ export default function Home() {
             <MessageCircle size={22} />
             <div>
               <strong>Canal de demonstrações</strong>
-              <span>{whatsappUrl ? "WhatsApp oficial conectado" : "Atendimento comercial em preparação"}</span>
+              <span>WhatsApp oficial conectado</span>
             </div>
           </div>
-          <a className="button primary full" href={demoHref}>
-            {whatsappUrl ? "Abrir WhatsApp" : "Agendar demonstração"}
+          <a className="button primary full" href={demoHref} target="_blank" rel="noreferrer">
+            Abrir WhatsApp
             <ArrowRight size={18} />
           </a>
           <p className="contact-note">

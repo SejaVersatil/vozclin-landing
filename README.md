@@ -35,13 +35,9 @@ npm run build
 
 ## CTA e WhatsApp
 
-A primeira versão mantém o contato como seção provisória, sem número hardcoded no repositório público.
+O CTA principal de demonstração e o bloco de contato apontam para o WhatsApp oficial:
 
-Quando o canal oficial estiver pronto, configure:
-
-```bash
-NEXT_PUBLIC_WHATSAPP_URL=https://wa.me/5500000000000?text=Tenho%20interesse%20em%20uma%20demonstra%C3%A7%C3%A3o%20do%20VozClin
-```
+`https://wa.me/5571991801276`
 
 ## Estrutura
 
