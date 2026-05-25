@@ -162,12 +162,11 @@ export default function Home() {
         <div className="section-heading">
           <p className="section-kicker">Dor operacional</p>
           <h2 id="problema-title">
-            Documentar bem não deveria consumir o melhor horário da clínica.
+            A documentação clínica não deveria roubar tempo do atendimento.
           </h2>
           <p>
-            O VozClin usa IA como camada de organização documental. A rotina
-            reduz atrito, preserva a revisão humana e mantém os limites clínicos
-            claros para o profissional.
+            O VozClin organiza a fala em fichas revisáveis, reduzindo a
+            burocracia entre consultas sem substituir a validação do profissional.
           </p>
         </div>
         <div className="three-grid">
