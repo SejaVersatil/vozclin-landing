@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="VozClin landing">
   <defs>
-    <linearGradient id="ogBrandBg" x1="6" y1="4" x2="58" y2="62" gradientUnits="userSpaceOnUse">
+    <linearGradient id="ogBrandBg" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#F7FFFC"/>
       <stop offset="0.58" stop-color="#E5F7F2"/>
       <stop offset="1" stop-color="#CFF0EA"/>
     </linearGradient>
-    <linearGradient id="ogBrandTube" x1="18" y1="12" x2="48" y2="55" gradientUnits="userSpaceOnUse">
+    <linearGradient id="ogBrandStroke" x1="16" y1="13" x2="49" y2="51" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#0B8F86"/>
       <stop offset="1" stop-color="#16B8AA"/>
     </linearGradient>
@@ -14,14 +14,11 @@
   <path d="M0 0h1200v630H0z" fill="#fbfdfb"/>
   <path d="M0 470h1200v160H0z" fill="#063f3b"/>
   <g transform="translate(74 72) scale(1.3125)">
-    <rect width="64" height="64" rx="14" fill="url(#ogBrandBg)" stroke="#BFE7DF" stroke-width="1.4"/>
-    <path d="M20 16.1v6.8c0 9.6 4.9 16.1 12 20.8 7.1-4.7 12-11.2 12-20.8v-6.8" stroke="url(#ogBrandTube)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M32 43.6c-.2 4.9 3.8 8.7 9.2 8.7" stroke="url(#ogBrandTube)" stroke-width="5" stroke-linecap="round"/>
-    <circle cx="20" cy="14.1" r="3.25" fill="#0B8F86"/>
-    <circle cx="44" cy="14.1" r="3.25" fill="#0B8F86"/>
-    <circle cx="45.2" cy="52.1" r="4.35" stroke="#0B8F86" stroke-width="3.4"/>
-    <circle cx="45.2" cy="52.1" r="1.35" fill="#0AA39A"/>
-    <path d="M25.1 31.4h3.1l1.6-4.4 3.5 9.4 1.8-5h3.1" stroke="#0AA39A" stroke-width="2.15" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect width="64" height="64" rx="15" fill="url(#ogBrandBg)" stroke="#BFE7DF" stroke-width="1.4"/>
+    <path d="M17.8 17.4l12.1 29.1c.82 1.98 3.39 2.04 4.28.09l13.34-29.19" stroke="url(#ogBrandStroke)" stroke-width="6.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M22.5 34.2h5.9l1.8-4.5 4.2 10.2 2.2-5.7h5.2" stroke="#0AA39A" stroke-width="2.05" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="50.6" cy="50.6" r="4.1" fill="#16B8AA"/>
+    <circle cx="50.6" cy="50.6" r="1.35" fill="#F7FFFC"/>
   </g>
   <text x="182" y="128" fill="#082622" font-family="Arial, sans-serif" font-size="54" font-weight="800">VozClin</text>
   <text x="74" y="270" fill="#082622" font-family="Georgia, serif" font-size="72" font-weight="700">Documentação clínica por voz</text>
