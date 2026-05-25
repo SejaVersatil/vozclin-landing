@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { AudioLines, Mic2, RotateCcw, ShieldCheck, Square, Sparkles } from "lucide-react";
+import { Mic2, RotateCcw, Square } from "lucide-react";
 
 type SpeechRecognitionAlternativeLike = {
   transcript: string;
@@ -65,11 +65,11 @@ export function VoiceTranscriptionDemo() {
   const finalTranscriptRef = useRef("");
   const shouldListenRef = useRef(false);
 
-  const [support, setSupport] = useState<"checking" | "supported" | "unsupported">("checking");
+  const [support, setSupport] = useState<"checking" | "supported" | "unsupported">("supported");
   const [isListening, setIsListening] = useState(false);
   const [finalTranscript, setFinalTranscript] = useState("");
   const [interimTranscript, setInterimTranscript] = useState("");
-  const [notice, setNotice] = useState("Clique no microfone e fale uma frase curta.");
+  const [notice, setNotice] = useState("Clique no microfone e fale.");
 
   const transcriptText = useMemo(
     () => [finalTranscript, interimTranscript].filter(Boolean).join(" ").trim(),
@@ -190,72 +190,44 @@ export function VoiceTranscriptionDemo() {
     finalTranscriptRef.current = "";
     setFinalTranscript("");
     setInterimTranscript("");
-    setNotice("Clique no microfone e fale uma frase curta.");
+    setNotice("Clique no microfone e fale.");
   }
 
   return (
     <section className="voice-demo-section section-wrap" aria-labelledby="voice-demo-title">
+      <div className="voice-demo-heading">
+        <h2 id="voice-demo-title">Teste sua Voz</h2>
+      </div>
       <div className="voice-demo-shell">
-        <div className="voice-demo-copy">
-          <span className="voice-demo-eyebrow">
-            <Sparkles size={15} />
-            Demonstração interativa
-          </span>
-          <h2 id="voice-demo-title">Transforme sua voz</h2>
-          <p>
-            Permita o microfone, fale uma frase curta e veja a fala ganhar forma
-            em uma conversa limpa, segura e pronta para virar rascunho revisável.
-          </p>
-          <div className="voice-demo-trust">
-            <span>
-              <ShieldCheck size={16} />
-              Sem envio para o backend do VozClin
-            </span>
-            <span>
-              <AudioLines size={16} />
-              Reconhecimento nativo do navegador
-            </span>
-          </div>
-        </div>
-
-        <div className="voice-chat-card">
-          <div className="voice-chat-topbar">
-            <div>
-              <span className={isListening ? "voice-status active" : "voice-status"}>
-                <span aria-hidden="true" />
-                {isListening ? "Gravando agora" : support === "unsupported" ? "Navegador sem suporte" : "Pronto para testar"}
-              </span>
-              <strong>Conversa de demonstração</strong>
-            </div>
-            <button className="voice-reset-button" type="button" onClick={resetTranscript}>
-              <RotateCcw size={16} />
-              Limpar
-            </button>
-          </div>
-
+        <div className={isListening ? "voice-chat-card listening" : "voice-chat-card"}>
           <div className={isListening ? "voice-live-line active" : "voice-live-line"} aria-hidden="true">
-            {Array.from({ length: 18 }).map((_, index) => (
+            {Array.from({ length: 26 }).map((_, index) => (
               <span key={index} style={{ animationDelay: `${index * 54}ms` }} />
             ))}
           </div>
 
           <div className="voice-chat-window" aria-live="polite">
             <div className="voice-chat-message assistant">
-              <span>VozClin</span>
-              <p>Fale como se estivesse ditando uma observação clínica simples.</p>
+              <span className="medical-bot-avatar" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <rect x="10" y="12" width="28" height="24" rx="10" />
+                  <path d="M17 10v5M31 10v5M19 24h.01M29 24h.01M20 31h8" />
+                  <path d="M12 30c-4 1.5-5 8-.5 10 4.7 2.1 8.5-1.8 8.5-6" />
+                  <circle cx="11" cy="39" r="3" />
+                </svg>
+              </span>
+              <div className="voice-message-body">
+                <strong>Dr. VozClin</strong>
+                <p>Bem vindo ao VozClin, teste o poder da sua voz!</p>
+              </div>
             </div>
 
-            <div className={transcriptText ? "voice-chat-message user filled" : "voice-chat-message user"}>
-              <span>Você</span>
-              <p>
-                {transcriptText || "Sua fala aparecerá aqui em tempo real assim que o microfone estiver ativo."}
-              </p>
-            </div>
-
-            {finalTranscript ? (
-              <div className="voice-chat-message assistant summary">
-                <span>Rascunho seguro</span>
-                <p>Texto capturado para revisão profissional antes de qualquer uso clínico.</p>
+            {transcriptText || isListening ? (
+              <div className={transcriptText ? "voice-chat-message user filled" : "voice-chat-message user listening"}>
+                <div className="voice-message-body">
+                  <strong>Você</strong>
+                  <p>{transcriptText || "Escutando..."}</p>
+                </div>
               </div>
             ) : null}
           </div>
@@ -265,18 +237,20 @@ export function VoiceTranscriptionDemo() {
               className={isListening ? "voice-mic-button listening" : "voice-mic-button"}
               type="button"
               onClick={toggleListening}
-              disabled={support === "checking"}
               aria-pressed={isListening}
             >
-              {isListening ? <Square size={18} /> : <Mic2 size={20} />}
-              {isListening ? "Parar captura" : "Clique e fale"}
+              <span className="voice-mic-icon" aria-hidden="true">
+                {isListening ? <Square size={22} /> : <Mic2 size={24} />}
+              </span>
+              <span>{isListening ? "Parar" : "Falar"}</span>
             </button>
             <p>{notice}</p>
+            {transcriptText ? (
+              <button className="voice-reset-button" type="button" onClick={resetTranscript} aria-label="Limpar conversa">
+                <RotateCcw size={18} />
+              </button>
+            ) : null}
           </div>
-
-          <p className="voice-demo-disclaimer">
-            Demonstração visual. Não informe dados reais de pacientes neste teste.
-          </p>
         </div>
       </div>
     </section>
