@@ -133,7 +133,7 @@ export const audiences: IconCard[] = [
 export const pricingPlans = [
   {
     segment: "Profissional individual",
-    name: "Essencial 1",
+    name: "Prática Individual",
     price: "R$ 149,90",
     cadence: "/mês",
     quantity: "1 chave mensal",
@@ -146,7 +146,7 @@ export const pricingPlans = [
   },
   {
     segment: "Clínica pequena",
-    name: "Essencial 3",
+    name: "Rotina Clínica",
     price: "R$ 399,90",
     cadence: "/mês",
     quantity: "3 chaves mensais",
@@ -160,7 +160,7 @@ export const pricingPlans = [
   },
   {
     segment: "Equipe em crescimento",
-    name: "Essencial 5",
+    name: "Equipe Estruturada",
     price: "R$ 649,90",
     cadence: "/mês",
     quantity: "5 chaves mensais",
