@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { Mic2, RotateCcw, Square } from "lucide-react";
+import { RotateCcw, Square } from "lucide-react";
 
 type SpeechRecognitionAlternativeLike = {
   transcript: string;
@@ -248,11 +248,11 @@ export function VoiceTranscriptionDemo() {
           <div className="voice-chat-window" aria-live="polite">
             <div className="voice-chat-message assistant">
               <span className="medical-bot-avatar" aria-hidden="true">
-                <svg viewBox="0 0 48 48" focusable="false">
-                  <rect x="10" y="12" width="28" height="24" rx="10" />
-                  <path d="M17 10v5M31 10v5M19 24h.01M29 24h.01M20 31h8" />
-                  <path d="M12 30c-4 1.5-5 8-.5 10 4.7 2.1 8.5-1.8 8.5-6" />
-                  <circle cx="11" cy="39" r="3" />
+                <svg className="voice-doctor-mark" viewBox="0 0 48 48" focusable="false">
+                  <path className="voice-doctor-v" d="M13.5 15.5 22 33l8.2-17.5" />
+                  <path className="voice-doctor-pulse" d="M29.5 27h3.1l1.8-3.8 2.3 8.4 1.7-4.6h3.1" />
+                  <circle className="voice-doctor-dot" cx="38.2" cy="35.4" r="3.2" />
+                  <path className="voice-doctor-plus" d="M14.5 34.5h5m-2.5-2.5v5" />
                 </svg>
               </span>
               <div className="voice-message-body">
@@ -279,9 +279,18 @@ export function VoiceTranscriptionDemo() {
               type="button"
               onClick={toggleListening}
               aria-pressed={isListening}
+              aria-label={isListening ? "Parar teste de voz" : "Iniciar teste de voz"}
             >
               <span className="voice-mic-icon" aria-hidden="true">
-                {isListening ? <Square size={14} /> : <Mic2 size={17} />}
+                {isListening ? (
+                  <Square size={13} />
+                ) : (
+                  <svg className="voice-mic-mark" viewBox="0 0 24 24" focusable="false">
+                    <path d="M12 4.5a3 3 0 0 0-3 3v4.2a3 3 0 0 0 6 0V7.5a3 3 0 0 0-3-3Z" />
+                    <path d="M6.7 11.5a5.3 5.3 0 0 0 10.6 0M12 17v2.7M9 19.7h6" />
+                    <path d="M18.5 8.8h1.8m-1.2-2 1.3-1.3" />
+                  </svg>
+                )}
               </span>
               <span>{isListening ? "Parar" : "Falar"}</span>
             </button>
