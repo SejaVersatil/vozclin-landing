@@ -66,6 +66,8 @@ export function VoiceTranscriptionDemo() {
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
   const finalTranscriptRef = useRef("");
   const shouldListenRef = useRef(false);
+  const recognitionRunningRef = useRef(false);
+  const restartTimerRef = useRef<number | null>(null);
 
   const [support, setSupport] = useState<"checking" | "supported" | "unsupported">("supported");
   const [isListening, setIsListening] = useState(false);
@@ -98,6 +100,7 @@ export function VoiceTranscriptionDemo() {
     recognition.maxAlternatives = 1;
 
     recognition.onstart = () => {
+      recognitionRunningRef.current = true;
       setIsListening(true);
       setNotice("Escutando em tempo real...");
     };
@@ -131,12 +134,64 @@ export function VoiceTranscriptionDemo() {
     };
 
     recognition.onerror = (event) => {
+      recognitionRunningRef.current = false;
+
+      if (event.error === "no-speech" && shouldListenRef.current) {
+        setNotice("Escutando. Fale quando quiser.");
+        return;
+      }
+
+      if (event.error === "aborted" && !shouldListenRef.current) {
+        return;
+      }
+
       shouldListenRef.current = false;
       setIsListening(false);
       setNotice(errorMessages[event.error] ?? "Não foi possível capturar a fala neste momento.");
     };
 
     recognition.onend = () => {
+      recognitionRunningRef.current = false;
+
+      if (shouldListenRef.current) {
+        setIsListening(true);
+        setNotice(finalTranscriptRef.current ? "Escutando. Continue falando quando quiser." : "Escutando. Fale quando quiser.");
+
+        if (restartTimerRef.current) {
+          window.clearTimeout(restartTimerRef.current);
+        }
+
+        restartTimerRef.current = window.setTimeout(() => {
+          restartTimerRef.current = null;
+
+          if (!shouldListenRef.current || !recognitionRef.current || recognitionRunningRef.current) {
+            return;
+          }
+
+          try {
+            recognitionRef.current.start();
+          } catch {
+            restartTimerRef.current = window.setTimeout(() => {
+              restartTimerRef.current = null;
+
+              if (!shouldListenRef.current || !recognitionRef.current || recognitionRunningRef.current) {
+                return;
+              }
+
+              try {
+                recognitionRef.current.start();
+              } catch {
+                shouldListenRef.current = false;
+                setIsListening(false);
+                setNotice("A captura foi pausada pelo navegador. Toque em Falar para retomar.");
+              }
+            }, 600);
+          }
+        }, 180);
+
+        return;
+      }
+
       setIsListening(false);
 
       if (shouldListenRef.current) {
@@ -152,6 +207,13 @@ export function VoiceTranscriptionDemo() {
 
     return () => {
       shouldListenRef.current = false;
+      recognitionRunningRef.current = false;
+
+      if (restartTimerRef.current) {
+        window.clearTimeout(restartTimerRef.current);
+        restartTimerRef.current = null;
+      }
+
       try {
         recognition.abort?.();
         recognition.stop();
@@ -201,17 +263,38 @@ export function VoiceTranscriptionDemo() {
 
     if (isListening) {
       shouldListenRef.current = false;
-      recognitionRef.current.stop();
-      setNotice("Finalizando captura...");
+      setIsListening(false);
+      setNotice(finalTranscriptRef.current ? "Texto capturado como rascunho da conversa." : "Clique no microfone e fale.");
+
+      if (restartTimerRef.current) {
+        window.clearTimeout(restartTimerRef.current);
+        restartTimerRef.current = null;
+      }
+
+      try {
+        recognitionRef.current.stop();
+        recognitionRunningRef.current = false;
+      } catch {
+        recognitionRunningRef.current = false;
+      }
+
       return;
     }
 
     try {
       shouldListenRef.current = true;
+      setIsListening(true);
       setInterimTranscript("");
+      setNotice("Escutando em tempo real...");
       recognitionRef.current.start();
     } catch {
+      if (recognitionRunningRef.current) {
+        setNotice("Escutando em tempo real...");
+        return;
+      }
+
       shouldListenRef.current = false;
+      setIsListening(false);
       setNotice("A captura já está ativa. Aguarde alguns segundos e tente novamente.");
     }
   }
@@ -219,7 +302,19 @@ export function VoiceTranscriptionDemo() {
   function resetTranscript() {
     if (isListening && recognitionRef.current) {
       shouldListenRef.current = false;
-      recognitionRef.current.stop();
+      setIsListening(false);
+
+      if (restartTimerRef.current) {
+        window.clearTimeout(restartTimerRef.current);
+        restartTimerRef.current = null;
+      }
+
+      try {
+        recognitionRef.current.stop();
+        recognitionRunningRef.current = false;
+      } catch {
+        recognitionRunningRef.current = false;
+      }
     }
 
     finalTranscriptRef.current = "";
