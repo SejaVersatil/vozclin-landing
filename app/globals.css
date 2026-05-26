@@ -33,10 +33,11 @@ body {
   margin: 0;
   color: var(--ink);
   background:
-    linear-gradient(90deg, rgba(6, 63, 59, 0.035) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(6, 63, 59, 0.028) 1px, transparent 1px),
-    linear-gradient(180deg, #fbfdfb 0%, #edf8f4 48%, #fbfdfb 100%);
-  background-size: 48px 48px, 48px 48px, auto;
+    radial-gradient(circle at 50% 18%, rgba(223, 248, 242, 0.72), transparent 34%),
+    linear-gradient(90deg, rgba(6, 63, 59, 0.022) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(6, 63, 59, 0.018) 1px, transparent 1px),
+    linear-gradient(180deg, #fbfdfb 0%, #f4f0e8 54%, #fbfdfb 100%);
+  background-size: auto, 56px 56px, 56px 56px, auto;
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   text-rendering: geometricPrecision;
 }
@@ -57,8 +58,44 @@ textarea {
 }
 
 .site-shell {
+  position: relative;
+  isolation: isolate;
   min-height: 100vh;
   overflow: clip;
+}
+
+.site-shell::before {
+  content: "";
+  position: fixed;
+  top: -14vh;
+  right: -34vw;
+  z-index: 0;
+  width: min(1220px, 118vw);
+  height: min(920px, 108vh);
+  opacity: 0.52;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1400 900'%3E%3Cpath d='M92 -60 C252 228 392 438 548 626 C618 710 704 710 774 624 C944 414 1052 166 1318 -78' fill='none' stroke='%23063f3b' stroke-width='134' stroke-linecap='round' opacity='.052'/%3E%3Cpath d='M362 520h144l48 -102 80 238 58 -140h184' fill='none' stroke='%2308766f' stroke-width='18' stroke-linecap='round' stroke-linejoin='round' opacity='.082'/%3E%3Ccircle cx='554' cy='418' r='15' fill='%2312a99c' opacity='.14'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.site-shell::after {
+  content: "";
+  position: fixed;
+  right: 7vw;
+  bottom: 8vh;
+  z-index: 0;
+  width: 340px;
+  height: 340px;
+  pointer-events: none;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(18, 169, 156, 0.09), transparent 68%);
+}
+
+.site-shell > * {
+  position: relative;
+  z-index: 1;
 }
 
 .section-wrap {
@@ -1965,6 +2002,24 @@ h1 .voice-gradient {
 @media (max-width: 760px) {
   :root {
     --section: min(calc(100% - 28px), 1180px);
+  }
+
+  body {
+    background-size: auto, 44px 44px, 44px 44px, auto;
+  }
+
+  .site-shell::before {
+    top: -12vh;
+    right: -58vw;
+    width: 152vw;
+    opacity: 0.44;
+  }
+
+  .site-shell::after {
+    right: -18vw;
+    bottom: -18vh;
+    width: 280px;
+    height: 280px;
   }
 
   .topbar {
