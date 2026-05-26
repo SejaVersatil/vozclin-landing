@@ -249,6 +249,15 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
+                <a
+                  className="pricing-card-cta"
+                  href={plan.href}
+                  target={plan.consult ? "_blank" : undefined}
+                  rel={plan.consult ? "noreferrer" : undefined}
+                >
+                  {plan.ctaLabel}
+                  <ArrowRight size={17} />
+                </a>
               </article>
             );
           })}

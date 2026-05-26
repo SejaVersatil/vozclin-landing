@@ -137,6 +137,8 @@ export const pricingPlans = [
     price: "R$ 149,90",
     cadence: "/mês",
     quantity: "1 chave mensal",
+    ctaLabel: "Assinar 1 chave",
+    href: "https://voxialaw.com/register?plan=essential_1",
     benefits: [
       "Nova sessão por voz",
       "Ficha revisável",
@@ -150,6 +152,8 @@ export const pricingPlans = [
     price: "R$ 399,90",
     cadence: "/mês",
     quantity: "3 chaves mensais",
+    ctaLabel: "Assinar 3 chaves",
+    href: "https://voxialaw.com/register?plan=essential_3",
     recommended: true,
     benefits: [
       "Uso por equipe enxuta",
@@ -164,6 +168,8 @@ export const pricingPlans = [
     price: "R$ 649,90",
     cadence: "/mês",
     quantity: "5 chaves mensais",
+    ctaLabel: "Assinar 5 chaves",
+    href: "https://voxialaw.com/register?plan=essential_5",
     benefits: [
       "Mais acessos",
       "Padronização de documentação",
@@ -177,6 +183,8 @@ export const pricingPlans = [
     price: "Sob consulta",
     cadence: "comercial",
     quantity: "acessos personalizados",
+    ctaLabel: "Solicitar sob consulta",
+    href: "https://wa.me/5571991801276?text=Ol%C3%A1%2C%20quero%20um%20plano%20personalizado%20do%20VozClin.",
     consult: true,
     benefits: [
       "Quantidade de chaves sob medida",
