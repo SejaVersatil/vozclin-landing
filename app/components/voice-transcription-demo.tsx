@@ -249,10 +249,25 @@ export function VoiceTranscriptionDemo() {
             <div className="voice-chat-message assistant">
               <span className="medical-bot-avatar" aria-hidden="true">
                 <svg className="voice-doctor-mark" viewBox="0 0 48 48" focusable="false">
-                  <path className="voice-doctor-v" d="M13.5 15.5 22 33l8.2-17.5" />
-                  <path className="voice-doctor-pulse" d="M29.5 27h3.1l1.8-3.8 2.3 8.4 1.7-4.6h3.1" />
-                  <circle className="voice-doctor-dot" cx="38.2" cy="35.4" r="3.2" />
-                  <path className="voice-doctor-plus" d="M14.5 34.5h5m-2.5-2.5v5" />
+                  <circle className="voice-doctor-halo" cx="24" cy="24" r="19.5" />
+                  <path
+                    className="voice-doctor-hair"
+                    d="M15.8 21.6c.1-8.1 4.7-12.3 9.6-12.3 4.5 0 7.8 3.1 8.6 7.2 1.8 1.1 2.5 3.1 1.9 5.6l-.8 3.4h-2.4l-.5-6.1c-4.4.1-7.6-1-10.2-3.1-1.6 2.7-3.3 3.9-6.2 4.3l-.5 4.9h-2.3l-.7-3.9Z"
+                  />
+                  <path
+                    className="voice-doctor-face"
+                    d="M17.2 21.4c.4 7.7 3.4 11.6 7.4 11.6s7-3.9 7.4-11.6c-4 .1-7.3-.9-9.8-2.9-1.3 1.8-2.8 2.7-5 2.9Z"
+                  />
+                  <path
+                    className="voice-doctor-coat"
+                    d="M11.7 40.2c1.3-5.5 5.6-8.4 12.3-8.4s11 2.9 12.3 8.4H11.7Z"
+                  />
+                  <path className="voice-doctor-scrub" d="M21 32.6h6l-3 4.8-3-4.8Z" />
+                  <path
+                    className="voice-doctor-stethoscope"
+                    d="M18.2 33.3v3.4c0 2.1 1.4 3.5 3.4 3.5s3.4-1.4 3.4-3.5v-3.4M29.6 33.5v4.1c0 2.3 1.5 3.8 3.6 3.8"
+                  />
+                  <circle className="voice-doctor-diaphragm" cx="35.5" cy="41.1" r="2.4" />
                 </svg>
               </span>
               <div className="voice-message-body">

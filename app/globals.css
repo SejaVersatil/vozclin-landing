@@ -979,22 +979,48 @@ h1 .voice-gradient {
 }
 
 .medical-bot-avatar svg {
-  width: 21px;
-  height: 21px;
+  width: 24px;
+  height: 24px;
 }
 
-.medical-bot-avatar path,
-.medical-bot-avatar circle {
+.voice-doctor-halo {
+  fill: rgba(222, 247, 242, 0.96);
+}
+
+.voice-doctor-hair {
+  fill: var(--clinical);
+}
+
+.voice-doctor-face {
+  fill: #f3d8bf;
+  stroke: rgba(6, 63, 59, 0.28);
+  stroke-width: 1.25;
+}
+
+.voice-doctor-coat {
+  fill: #fbfffd;
+  stroke: rgba(8, 118, 111, 0.78);
+  stroke-width: 1.35;
+  stroke-linejoin: round;
+}
+
+.voice-doctor-scrub {
+  fill: var(--clinical-3);
+  opacity: 0.92;
+}
+
+.voice-doctor-stethoscope {
   fill: none;
-  stroke: currentColor;
-  stroke-width: 2.4;
+  stroke: var(--clinical);
+  stroke-width: 1.55;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
-.medical-bot-avatar .voice-doctor-dot {
-  fill: currentColor;
-  stroke: none;
+.voice-doctor-diaphragm {
+  fill: var(--clinical-3);
+  stroke: var(--clinical);
+  stroke-width: 0.95;
 }
 
 .voice-message-body strong {
