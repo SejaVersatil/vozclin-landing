@@ -52,7 +52,7 @@ const errorMessages: Record<string, string> = {
   "not-allowed": "Permissão de microfone recusada. Libere o acesso para testar.",
   "service-not-allowed": "O navegador bloqueou o reconhecimento de voz nesta página.",
   network: "O reconhecimento nativo do navegador não respondeu agora.",
-  "no-speech": "Não detectamos fala. Tente novamente falando perto do microfone."
+  "no-speech": "Não detectamos fala. Tente novamente falando em volume natural."
 };
 
 const botGreeting = "Bem vindo ao VozClin, teste o poder da sua voz!";
@@ -60,6 +60,77 @@ const botGreeting = "Bem vindo ao VozClin, teste o poder da sua voz!";
 function getSpeechRecognition() {
   const speechWindow = window as SpeechRecognitionWindow;
   return speechWindow.SpeechRecognition ?? speechWindow.webkitSpeechRecognition;
+}
+
+function compactTranscript(text: string) {
+  return text.replace(/\s+/g, " ").trim();
+}
+
+function normalizeTranscript(text: string) {
+  return compactTranscript(text)
+    .toLocaleLowerCase("pt-BR")
+    .replace(/[.,!?;:]+$/g, "");
+}
+
+function mergeTranscript(currentTranscript: string, incomingTranscript: string) {
+  const current = compactTranscript(currentTranscript);
+  const incoming = compactTranscript(incomingTranscript);
+
+  if (!current) {
+    return incoming;
+  }
+
+  if (!incoming) {
+    return current;
+  }
+
+  const currentNormalized = normalizeTranscript(current);
+  const incomingNormalized = normalizeTranscript(incoming);
+
+  if (currentNormalized === incomingNormalized || currentNormalized.endsWith(incomingNormalized)) {
+    return current;
+  }
+
+  if (incomingNormalized.startsWith(currentNormalized)) {
+    return incoming;
+  }
+
+  const currentTokens = current.split(/\s+/);
+  const incomingTokens = incoming.split(/\s+/);
+  const currentNormalizedTokens = currentTokens.map(normalizeTranscript);
+  const incomingNormalizedTokens = incomingTokens.map(normalizeTranscript);
+
+  for (let overlap = Math.min(currentTokens.length, incomingTokens.length); overlap > 0; overlap -= 1) {
+    const currentTail = currentNormalizedTokens.slice(currentNormalizedTokens.length - overlap).join(" ");
+    const incomingHead = incomingNormalizedTokens.slice(0, overlap).join(" ");
+
+    if (currentTail && currentTail === incomingHead) {
+      return compactTranscript(`${current} ${incomingTokens.slice(overlap).join(" ")}`);
+    }
+  }
+
+  return compactTranscript(`${current} ${incoming}`);
+}
+
+function getInterimTranscript(finalTranscript: string, interimTranscript: string) {
+  const interim = compactTranscript(interimTranscript);
+
+  if (!interim) {
+    return "";
+  }
+
+  const merged = mergeTranscript(finalTranscript, interim);
+  const finalNormalized = normalizeTranscript(finalTranscript);
+
+  if (normalizeTranscript(merged) === finalNormalized) {
+    return "";
+  }
+
+  if (finalTranscript && merged.startsWith(compactTranscript(finalTranscript))) {
+    return compactTranscript(merged.slice(compactTranscript(finalTranscript).length));
+  }
+
+  return interim;
 }
 
 export function VoiceTranscriptionDemo() {
@@ -125,12 +196,12 @@ export function VoiceTranscriptionDemo() {
       }
 
       if (finalChunk) {
-        const nextTranscript = `${finalTranscriptRef.current} ${finalChunk}`.replace(/\s+/g, " ").trim();
+        const nextTranscript = mergeTranscript(finalTranscriptRef.current, finalChunk);
         finalTranscriptRef.current = nextTranscript;
         setFinalTranscript(nextTranscript);
       }
 
-      setInterimTranscript(interimChunk.trim());
+      setInterimTranscript(getInterimTranscript(finalTranscriptRef.current, interimChunk));
     };
 
     recognition.onerror = (event) => {
