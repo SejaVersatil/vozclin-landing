@@ -58,6 +58,11 @@ const icons = {
 const DEMO_WHATSAPP_URL =
   "https://wa.me/5571991801276?text=Ol%C3%A1%2C%20quero%20agendar%20uma%20demonstra%C3%A7%C3%A3o%20do%20VozClin.";
 
+const publicBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+const marketingVideoDesktopSrc = `${publicBasePath}/media/vozclin-landing-desktop.mp4`;
+const marketingVideoMobileSrc = `${publicBasePath}/media/vozclin-landing-mobile.mp4`;
+const marketingVideoPosterSrc = `${publicBasePath}/media/vozclin-landing-poster.jpg`;
+
 function IconBadge({ icon }: { icon: IconKey }) {
   const Icon = icons[icon];
 
@@ -91,6 +96,29 @@ function BrandMark() {
         />
       </svg>
     </span>
+  );
+}
+
+function MarketingVideoSection() {
+  return (
+    <section className="marketing-video-section section-wrap" aria-labelledby="marketing-video-title">
+      <div className="marketing-video-heading">
+        <p className="section-kicker">VozClin em ação</p>
+        <h2 id="marketing-video-title">Veja a documentação por voz acontecendo no fluxo real.</h2>
+        <p>
+          Uma visão rápida da experiência: captura por voz, organização da informação
+          clínica e ficha pronta para revisão profissional.
+        </p>
+      </div>
+
+      <div className="marketing-video-shell">
+        <video className="marketing-video-player" controls preload="metadata" playsInline poster={marketingVideoPosterSrc}>
+          <source media="(max-width: 760px)" src={marketingVideoMobileSrc} type="video/mp4" />
+          <source src={marketingVideoDesktopSrc} type="video/mp4" />
+          Seu navegador não conseguiu carregar o vídeo de demonstração do VozClin.
+        </video>
+      </div>
+    </section>
   );
 }
 
@@ -162,6 +190,7 @@ export default function Home() {
       </section>
 
       <VoiceTranscriptionDemo />
+      <MarketingVideoSection />
 
       <section className="section-wrap problem-section" aria-labelledby="problema-title">
         <div className="section-heading">
