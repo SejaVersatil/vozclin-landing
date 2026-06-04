@@ -101,16 +101,7 @@ function BrandMark() {
 
 function MarketingVideoSection() {
   return (
-    <section className="marketing-video-section section-wrap" aria-labelledby="marketing-video-title">
-      <div className="marketing-video-heading">
-        <p className="section-kicker">VozClin em ação</p>
-        <h2 id="marketing-video-title">Veja a documentação por voz acontecendo no fluxo real.</h2>
-        <p>
-          Uma visão rápida da experiência: captura por voz, organização da informação
-          clínica e ficha pronta para revisão profissional.
-        </p>
-      </div>
-
+    <section className="marketing-video-section section-wrap" aria-label="Vídeo demonstrativo do VozClin">
       <div className="marketing-video-shell">
         <video className="marketing-video-player" controls preload="metadata" playsInline poster={marketingVideoPosterSrc}>
           <source media="(max-width: 760px)" src={marketingVideoMobileSrc} type="video/mp4" />

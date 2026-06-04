@@ -925,26 +925,7 @@ h1 .voice-gradient {
 }
 
 .marketing-video-section {
-  padding: clamp(4px, 1.4vw, 18px) 0 clamp(86px, 8vw, 120px);
-}
-
-.marketing-video-heading {
-  max-width: 780px;
-  margin: 0 auto clamp(28px, 4vw, 42px);
-  text-align: center;
-}
-
-.marketing-video-heading h2 {
-  margin-bottom: 16px;
-  text-wrap: balance;
-}
-
-.marketing-video-heading p:last-child {
-  max-width: 660px;
-  margin: 0 auto;
-  color: var(--ink-soft);
-  font-size: 1.08rem;
-  line-height: 1.62;
+  padding: clamp(8px, 2vw, 24px) 0 clamp(86px, 8vw, 120px);
 }
 
 .marketing-video-shell {
@@ -2294,20 +2275,7 @@ h1 .voice-gradient {
   }
 
   .marketing-video-section {
-    padding: 6px 0 62px;
-  }
-
-  .marketing-video-heading {
-    max-width: 340px;
-    margin-bottom: 22px;
-  }
-
-  .marketing-video-heading h2 {
-    font-size: clamp(2.3rem, 9vw, 3rem);
-  }
-
-  .marketing-video-heading p:last-child {
-    font-size: 1rem;
+    padding: 10px 0 62px;
   }
 
   .marketing-video-shell {
